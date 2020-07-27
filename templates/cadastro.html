@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block tela %}
+    <h1 id="title">Adicionar Item</h1>
+{% endblock %}
+
+{% block formulario %}
+    <form method="POST" action="{{ url_for('salvarbanco') }}">
+
+            <input id="prod" type="text" placeholder="Produto..." name="produto">
+            <input id="quant" type="text" placeholder="Quantidade..." name="quantidade">
+            <input id="quant" type="text" placeholder="Valor..." name="valor"><br>
+
+        <button type="submit">Salvar</button>
+
+    </form>
+{% endblock %}

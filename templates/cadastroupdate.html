@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+
+
+{% block tela %}
+    <h1 id="title">Adicionar Item</h1>
+{% endblock %}
+
+{% block formulario %}
+    <form method="POST" action="{{ url_for('updatedb', id=item[0]) }}">
+
+            <input id="prod" type="text" placeholder="Produto..." name="produto" value="{{item[1]}}">
+            <input id="quant" type="text" placeholder="Quantidade..." name="quantidade" value="{{item[2]}}">
+            <input id="quant" type="text" placeholder="Valor..." name="valor" value="{{item[3]}}"><br>
+
+        <button type="submit">Atualizar</button>
+
+    </form>
+{% endblock %}

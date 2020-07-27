@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <!--{% block cssindex %}{% endblock %}-->
+
+    <title> Flask </title>
+</head>
+<body>
+
+
+    <header>
+        <ul>
+            <li><a href="{{url_for('index')}}">Home</a></li>
+            <li><a href="{{url_for('lista')}}">Tabela</a></li>
+            <li><a href="{{url_for('adicionar')}}">Adicionar</a></li>
+        </ul>
+    </header>
+
+
+    {% block tela %}
+    {% endblock %}
+
+
+    {% block formulario %}
+    {% endblock %}
+
+
+    {% block tabela %}
+    {% endblock %}
+
+
+
+
+    
+
+    
+</body>
+</html>

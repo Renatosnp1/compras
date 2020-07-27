@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block tela %}
+    <h1 id="title">Minha Lista</h1>
+{% endblock %}
+
+
+{% block tabela %}
+<table>
+    <tr>
+        <th>Prod.</th>
+        <th>Qtd.</th>
+        <th>R$</th>
+        <th>Total</th>
+        <th>Ação</th>
+    </tr>
+     
+    
+    {% for dado in compras%}
+        <tr>
+            <td>{{dado[1]}}</td>
+            <td>{{dado[2]}}</td>
+            <td>{{dado[3]}}</td>
+            <td>{{dado[4]}}</td>
+            <td><a href="{{url_for('delete', id=dado[0])}}">Deletar</a> / <a href="{{ url_for('update', id=dado[0]) }}">Alterar</a></td>
+        </tr>
+            {% endfor %}
+        
+</table>
+
+<h2 id="total">Total: R$ {{ total }} </h2>
+{% endblock %}
