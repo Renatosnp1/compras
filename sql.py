@@ -28,7 +28,9 @@ class Addata():
         if quantidade and preco:
             total = int(quantidade) * float(preco)
         else:
-            total= ""
+            quantidade = 0
+            preco = 0.0
+            total= 0
         
         self.cur.execute(""" insert into lista_compras (produto, quantidade, preco, total)
                          values (?, ?, ?, ?)""", [produto.upper(), quantidade, preco, total])
@@ -47,7 +49,7 @@ class Consultadb():
         self.conn = sqlite3.connect('banco.db')
         self.cur = self.conn.cursor()
         
-        self.cur.execute(""" select * from  lista_compras """)
+        self.cur.execute(""" select * from  lista_compras order by produto ASC""")
         
         lista = self.cur.fetchall()
         self.conn.close()

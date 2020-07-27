@@ -84,8 +84,13 @@ def updatedb(id):
         quantidade = request.form["quantidade"]
         valor = request.form["valor"]
         
-        up = UpdateData
-        up.update("Manteiga", 10, 2.99, 36)
+        up = UpdateData()
+        up.update(produto, int(quantidade), float(valor), id)
         
         return redirect(url_for('lista'))
+    
+    
+    
+if __name__ =="__main__":
+    app.run()
     
