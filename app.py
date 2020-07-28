@@ -8,10 +8,6 @@ def index():
     return render_template('index.html')
 
 
-
-
-
-
 @app.route('/lista/')
 def lista():
     consuta_db = Consultadb()
@@ -20,9 +16,6 @@ def lista():
     if not total:
         total = 0
     return render_template('lista.html', compras=compras, total="%.2f" % total ) 
-
-
-
 
 
 
@@ -37,14 +30,11 @@ def adicionar():
 @app.route('/salvarbanco/', methods=["GET", "POST"])
 def salvarbanco():
     
-    consuta_db = Consultadb()
-    compras = consuta_db.consultaListaCompras() 
-    
     if request.method == "POST":
         produto = request.form['produto']
         quantidade = request.form['quantidade']
         valor = request.form['valor']
-        if produto:
+        if produto != "":
             s = Addata()
             
             if quantidade and valor:
@@ -53,9 +43,9 @@ def salvarbanco():
                 
             s.addlistshopping(produto, quantidade, valor)
         
-            return redirect(url_for('adicionar', compras=compras))
+            # return redirect(url_for('adicionar'))
     
-    return render_template('cadastro.html', compras=compras)
+    return redirect(url_for('adicionar'))
 
 
 
@@ -92,5 +82,5 @@ def updatedb(id):
     
     
 if __name__ =="__main__":
-    app.run()
+    app.run(debug=True)
     
